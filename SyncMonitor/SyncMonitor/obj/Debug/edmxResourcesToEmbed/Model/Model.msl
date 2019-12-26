@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ITD_SyncMonitorModelStoreContainer" CdmEntityContainer="ITD_SyncMonitorEntities">
+    <EntitySetMapping Name="Lanes">
+      <EntityTypeMapping TypeName="ITD_SyncMonitorModel.Lane">
+        <MappingFragment StoreEntitySet="Lane">
+          <ScalarProperty Name="ID_Lane" ColumnName="ID_Lane" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LaneCode" ColumnName="LaneCode" />
+          <ScalarProperty Name="IPaddress" ColumnName="IPaddress" />
+          <ScalarProperty Name="LastOnlineDate" ColumnName="LastOnlineDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stations">
+      <EntityTypeMapping TypeName="ITD_SyncMonitorModel.Station">
+        <MappingFragment StoreEntitySet="Station">
+          <ScalarProperty Name="ID_Station" ColumnName="ID_Station" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StationCode" ColumnName="StationCode" />
+          <ScalarProperty Name="IPaddress" ColumnName="IPaddress" />
+          <ScalarProperty Name="LastOnlineDate" ColumnName="LastOnlineDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Syncs">
+      <EntityTypeMapping TypeName="ITD_SyncMonitorModel.Sync">
+        <MappingFragment StoreEntitySet="Sync">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LuongDongBo" ColumnName="LuongDongBo" />
+          <ScalarProperty Name="Effect" ColumnName="Effect" />
+          <ScalarProperty Name="ID_Lane" ColumnName="ID_Lane" />
+          <ScalarProperty Name="ID_Station" ColumnName="ID_Station" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ITD_SyncMonitorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Lane">
+    <Key>
+      <PropertyRef Name="ID_Lane" />
+    </Key>
+    <Property Name="ID_Lane" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="LaneCode" Type="varchar" MaxLength="30" />
+    <Property Name="IPaddress" Type="varchar" MaxLength="10" />
+    <Property Name="LastOnlineDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Station">
+    <Key>
+      <PropertyRef Name="ID_Station" />
+    </Key>
+    <Property Name="ID_Station" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="StationCode" Type="varchar" MaxLength="30" />
+    <Property Name="IPaddress" Type="varchar" MaxLength="10" />
+    <Property Name="LastOnlineDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Sync">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ID_Lane" />
+      <PropertyRef Name="ID_Station" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="LuongDongBo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Effect" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_Lane" Type="bigint" Nullable="false" />
+    <Property Name="ID_Station" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Sync__ID_Lane__1A14E395">
+    <End Role="Lane" Type="Self.Lane" Multiplicity="1" />
+    <End Role="Sync" Type="Self.Sync" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lane">
+        <PropertyRef Name="ID_Lane" />
+      </Principal>
+      <Dependent Role="Sync">
+        <PropertyRef Name="ID_Lane" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sync__ID_Station__1B0907CE">
+    <End Role="Station" Type="Self.Station" Multiplicity="1" />
+    <End Role="Sync" Type="Self.Sync" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Station">
+        <PropertyRef Name="ID_Station" />
+      </Principal>
+      <Dependent Role="Sync">
+        <PropertyRef Name="ID_Station" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ITD_SyncMonitorModelStoreContainer">
+    <EntitySet Name="Lane" EntityType="Self.Lane" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Station" EntityType="Self.Station" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sync" EntityType="Self.Sync" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Sync__ID_Lane__1A14E395" Association="Self.FK__Sync__ID_Lane__1A14E395">
+      <End Role="Lane" EntitySet="Lane" />
+      <End Role="Sync" EntitySet="Sync" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sync__ID_Station__1B0907CE" Association="Self.FK__Sync__ID_Station__1B0907CE">
+      <End Role="Station" EntitySet="Station" />
+      <End Role="Sync" EntitySet="Sync" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
