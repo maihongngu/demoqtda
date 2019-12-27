@@ -47,8 +47,8 @@
                             <ComboBox Grid.Row="1" HorizontalAlignment="Center" Width="68" Grid.Column="0" Margin="0,10.4,2.8,10.4" />
                             <RadioButton HorizontalAlignment="Left" IsChecked="True" FontStyle="Normal" Height="23" VerticalAlignment="Center" Margin="15.2,9,0,9.6" Width="59" Grid.Row="0" Grid.Column="1">By day</RadioButton>
                             <Label Grid.Row="1" HorizontalAlignment="Left" Margin="0,9.4,0,0.4" Width="105" Grid.Column="1">Interval</Label>
-                            <DatePickerTextBox Grid.Row="1" HorizontalAlignment="Center" Width="107" Grid.Column="1" Margin="161.2,10.4,124.6,10.4" />
-                            <Button Content="Apply" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Width="100px"></Button>
+                            <DatePicker HorizontalAlignment="Center" Width="107" Grid.Column="1" Margin="139.2,38,146.6,0" Grid.RowSpan="3" />
+                            <Button Content="Apply" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Width="100px" Margin="283.2,0,9.6,0.4"></Button>
                         </Grid>
                     </GroupBox>
                     <!--<Grid Grid.Column="1">
@@ -187,14 +187,15 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="154*" ></RowDefinition>
+                        <RowDefinition Height="73*" ></RowDefinition>
+                        <RowDefinition Height="110*" ></RowDefinition>
+                        <RowDefinition Height="51*" ></RowDefinition>
+                        <RowDefinition Height="146*" ></RowDefinition>
                     </Grid.RowDefinitions>
-                    <GroupBox x:Name="Gb_Station" Grid.Row="0" Header="Station Info" Margin="0,0,-0.4,2">
+                    <GroupBox x:Name="Gb_Station" Grid.Row="0" Header="Station Info" Margin="0,0,-0.4,2.6">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="19*"></ColumnDefinition>
                                 <ColumnDefinition Width="172*"/>
                                 <ColumnDefinition Width="191*"></ColumnDefinition>
                                 <ColumnDefinition Width="191*"></ColumnDefinition>
@@ -203,45 +204,65 @@
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="0,21,0,11.4" Height="30px">Name</Label>
-                            <TextBox x:Name="txt_StationName" HorizontalAlignment="Left" Width="100px" Height="20px" Grid.ColumnSpan="2" Grid.Column="1" Margin="72,3,0,4"  />
-                            <Label HorizontalAlignment="Left" Grid.Row="1" Grid.ColumnSpan="2" Height="30px">IpAddress</Label>
-                            <TextBox  x:Name="txt_StationIP"  HorizontalAlignment="Left" Width="100px" Grid.Row="1" Height="20px" Grid.ColumnSpan="2" Grid.Column="1" Margin="72,3,0,3" TextCompositionManager.PreviewTextInput="txt_StationIP_PreviewTextInput"></TextBox>
-                            <Label HorizontalAlignment="Left" Grid.Column="2" Margin="9.6,21,0,11.4" Height="30px" >DatabaseName</Label>
-                            <TextBox x:Name="txt_dbStationName" HorizontalAlignment="Left" Width="100px" Grid.Column="2" Height="20px" Margin="141.6,21,0,21.4" RenderTransformOrigin="1.166,0.82"></TextBox>
-                            <Label HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" Height="30px" Margin="9.6,10.6,0,21" Width="109">Password</Label>
-                            <PasswordBox x:Name="txt_PasswordStation" HorizontalAlignment="Left" Width="100px" Grid.Column="2" Grid.Row="1" Height="20px" Margin="141.6,20.6,0,21"></PasswordBox>
-                            <Label HorizontalAlignment="Left" Grid.Column="3" Height="30px" Margin="10,21,0,11.4">UserName</Label>
-                            <TextBox x:Name="txt_UserDbStation" HorizontalAlignment="Left" Width="100px" Grid.Column="3" Height="20px" Margin="91,3,0,4"></TextBox>
-                            <Button x:Name="btn_connectStation" Grid.Column="3" Grid.Row="1" Content="Check Connection" Height="30px" Width="150px" Margin="21,0,20,0" Click="btn_connectStation_Click"></Button>
+                            <Label HorizontalAlignment="Left" Height="30px">Name</Label>
+                            <TextBox x:Name="txt_StationName" HorizontalAlignment="Right" Width="100px" Height="20px" Grid.Column="0" />
+                            <Label HorizontalAlignment="Left" Grid.Column="1" Height="30px">IpAddress</Label>
+                            <TextBox  x:Name="txt_StationIP"  HorizontalAlignment="Right" Width="100px" Height="20px"  Grid.Column="1" TextCompositionManager.PreviewTextInput="txt_StationIP_PreviewTextInput"></TextBox>
+                            <Label HorizontalAlignment="Left" Grid.Row="1"  Height="30px" >DatabaseName</Label>
+                            <TextBox x:Name="txt_dbStationName" HorizontalAlignment="Right" Width="100px" Grid.Row="1" Height="20px" ></TextBox>
+                            <Label HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" Height="30px" Width="109">Password</Label>
+                            <PasswordBox x:Name="txt_PasswordStation" HorizontalAlignment="Right" Width="100px" Grid.Column="2" Grid.Row="1" Height="20px"></PasswordBox>
+                            <Label HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="30px" >UserName</Label>
+                            <TextBox x:Name="txt_UserDbStation" HorizontalAlignment="Right" Width="100px" Grid.Column="1" Height="20px" Grid.Row="1"></TextBox>
+                            <Label HorizontalAlignment="Left" Grid.Column="2" Height="30px" >Mã trung tâm</Label>
+                            <TextBox x:Name="txt_StationCode" HorizontalAlignment="Right" Width="100px" Grid.Column="2" Height="20px" ></TextBox>
+
+
                         </Grid>
-                    </GroupBox>
-                    <GroupBox x:Name="Gb_Lane" Grid.Row="1" Header="Lane Info"  >
+                    </GroupBox >
+                    <Grid Grid.Row="1">
+                        <Button x:Name="btn_connectStation" Grid.Column="3" HorizontalAlignment="Right" Grid.Row="1" Content="Check Connection" Height="40px" Width="150px" Margin="21,0,20,0" Click="btn_connectStation_Click"></Button>
+                    </Grid>
+                    <GroupBox x:Name="Gb_Lane" Header="Lane Info"  Grid.Row="1" Margin="0,72.4,-0.4,8" Grid.RowSpan="2"   >
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="77*"></ColumnDefinition>
-                                <ColumnDefinition Width="186*"/>
-                                <ColumnDefinition Width="262*"></ColumnDefinition>
-                                <ColumnDefinition Width="262*"></ColumnDefinition>
+                                <ColumnDefinition Width="172*"/>
+                                <ColumnDefinition Width="191*"></ColumnDefinition>
+                                <ColumnDefinition Width="191*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label HorizontalAlignment="Left"  Margin="0,10,0,14.4" Width="62">Name</Label>
-                            <TextBox x:Name="txt_Lane" HorizontalAlignment="Left" Width="100px" Grid.Column="1" Margin="67.2,12,0,12.4" />
-                            <Label HorizontalAlignment="Left" Grid.Row="1" Margin="0,11.6,0,12" Width="62" >IpAddress</Label>
-                            <TextBox x:Name="txt_LaneIP" HorizontalAlignment="Left" Width="100px" Grid.Row="1" Grid.Column="1" Margin="67.2,16.6,0,17" TextCompositionManager.PreviewTextInput="txt_LaneIP_PreviewTextInput"/>
-                            <Label HorizontalAlignment="Left" Grid.Column="2" Margin="5.6,12,0,12.4" Width="91" >DatabaseName</Label>
-                            <TextBox HorizontalAlignment="Left" Width="100px" Grid.Column="2" Margin="151.6,17,0,17.4"/>
-                            <Label HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" Margin="9.6,8.6,0,15" Width="59">Password</Label>
-                            <PasswordBox HorizontalAlignment="Left" Width="100px" Grid.Column="2" Grid.Row="1" Margin="151.6,11.6,0,22"/>
-                            <Label HorizontalAlignment="Left" Grid.Column="3" Margin="10,14,0,10.4" Width="66">UserName</Label>
-                            <TextBox HorizontalAlignment="Left" Width="100px" Grid.Column="3" Margin="91,17,0,17.4"/>
-                            <Button Grid.Column="3" Content="Check Connection" Margin="102,38.4,9.6,0" Height="26" VerticalAlignment="Top" x:Name="btn_ConnectLane" Click="btn_ConnectLane_Click" Grid.Row="1"/>
+                            <Label HorizontalAlignment="Left" Height="30px" >Name</Label>
+                            <TextBox x:Name="txt_Lane" HorizontalAlignment="Right" Height="20px" Width="100px" />
+                            <Label HorizontalAlignment="Left" Grid.Column="1" Height="30px" >IpAddress</Label>
+                            <TextBox x:Name="txt_LaneIP" HorizontalAlignment="Right" Height="20px" Width="100px" Grid.Column="1" TextCompositionManager.PreviewTextInput="txt_LaneIP_PreviewTextInput"/>
+                            <Label HorizontalAlignment="Left" Grid.Row="1"  Height="30px" >DatabaseName</Label>
+                            <TextBox HorizontalAlignment="Right" Height="20px" Width="100px" Grid.Row="1" />
+                            <Label HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" Height="30px">Password</Label>
+                            <PasswordBox HorizontalAlignment="Right" Width="100px" Height="20px" Grid.Column="2" Grid.Row="1"/>
+                            <Label HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="30px">UserName</Label>
+                            <TextBox HorizontalAlignment="Right" Width="100px" Grid.Column="1" Grid.Row="1" Height="20px"/>
+                            <Label HorizontalAlignment="Left" Grid.Column="2" Grid.Row="0"  Height="30px">LaneCode</Label>
+                            <TextBox HorizontalAlignment="Right" Width="100px" Grid.Column="2"  Height="20px"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Thông tin trạng thái làn trạm" Grid.Row="2"  >
+                    <Grid Grid.Row="3" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Background="AliceBlue" Grid.Column="3" Content="Add" Height="30" Width="120px" VerticalAlignment="Center" x:Name="btn_add" Click="btn_ConnectLane_Click" Grid.Row="1"/>
+                        <Button Background="#FFF0D1B6" Grid.Column="4" Content="Update" Height="30" Width="120px" VerticalAlignment="Center" x:Name="btn_update" Click="btn_ConnectLane_Click" Grid.Row="1"/>
+                        <Button Background="LightPink" Grid.Column="5" Content="Delete" Height="30" Width="120px" VerticalAlignment="Center" x:Name="btn_delete" Click="btn_ConnectLane_Click" Grid.Row="1"/>
+                        <Button x:Name="btn_connectLane" Grid.Column="2" Content="Check Connection" Height="30px" Width="100px" Click="btn_ConnectLane_Click" />
+                    </Grid>
+                    <GroupBox Header="Thông tin trạng thái làn trạm" Grid.Row="4" Margin="0,0.8,-0.4,-0.2"  >
                         <ListView SelectionMode="Single" Visibility="Visible">
                             <ListView.Resources>
                                 <Style TargetType="ListViewItem">
@@ -274,6 +295,45 @@
 
             </TabItem>
             <TabItem Width="150px" Height="30px" Header="Thông tin đồng bộ">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="159*"></RowDefinition>
+                        <RowDefinition Height="374*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="Thông tin danh mục">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Content="Tên danh mục" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
+                            <Label Content="Luồng đồng bộ" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
+                            <Label Content="Hiệu lực" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
+                            <ComboBox x:Name="cmb_tendanhmuc" Grid.Row="1" Width="100px" Height="20px"></ComboBox>
+                            <ComboBox x:Name="cmb_luondongbo" Grid.Row="1" Grid.Column="1" Width="100px" Height="20px"></ComboBox>
+                            <CheckBox x:Name="ckb_hieuluc" Grid.Row="1" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="146" >
+                                <TextBlock HorizontalAlignment="Center" FontSize="15" Text="Cần theo dõi"></TextBlock>
+                            </CheckBox>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Header="Danh sách danh mục">
+                        <ListView>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Tên danh mục" Width="150px" DisplayMemberBinding="{Binding}"></GridViewColumn>
+                                    <GridViewColumn Header="Luồng đồng bộ" Width="150px" DisplayMemberBinding="{Binding}"></GridViewColumn>
+                                    <GridViewColumn Header="Hiệu lực" Width="150px" DisplayMemberBinding="{Binding}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </GroupBox>
+                </Grid>
 
             </TabItem>
         </TabControl>
