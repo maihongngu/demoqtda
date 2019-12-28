@@ -16,5 +16,4 @@ C:\Users\Shjn\Desktop\ITD_SyncMonitor\ITD_SyncMonitor\SyncMonitor\SyncMonitor\bi
 C:\Users\Shjn\Desktop\ITD_SyncMonitor\ITD_SyncMonitor\SyncMonitor\SyncMonitor\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Shjn\Desktop\ITD_SyncMonitor\ITD_SyncMonitor\SyncMonitor\SyncMonitor\bin\Debug\EntityFramework.xml
 C:\Users\Shjn\Desktop\ITD_SyncMonitor\ITD_SyncMonitor\SyncMonitor\SyncMonitor\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Shjn\Desktop\ITD_SyncMonitor\ITD_SyncMonitor\SyncMonitor\SyncMonitor\obj\Debug\SyncMonitor_Content.g.cs
 C:\Users\Shjn\Desktop\ITD_SyncMonitor\ITD_SyncMonitor\SyncMonitor\SyncMonitor\obj\Debug\SyncMonitor.csproj.CopyComplete

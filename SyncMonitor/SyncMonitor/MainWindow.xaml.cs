@@ -1,19 +1,10 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
+using System.Net;
+using System.Net.Sockets;
 
 namespace ITD_SyncMonitor
 {
@@ -62,14 +53,49 @@ namespace ITD_SyncMonitor
 
         private void btn_connectStation_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-
-            }
+            //Data Source=Shjn\sqlexpress;Initial Catalog=ITD_SyncMonitor;User ID=sa;password=123456;
+            //string severname = txt_StationName.Text.ToString();
+            //string connString = "Data Source=" + txt_StationName.Text.ToString() +";Initial Catalog=" + txt_dbStationName.Text.ToString() + ";User ID=" + txt_UserDbStation.Text.ToString() + ";password="+ pas_PasswordStation.Password + ";";
+            //SqlConnection conn = new SqlConnection(connString);
+            //try
+            //{
+            //    if (conn.State == ConnectionState.Closed)
+            //    {
+            //        conn.Open();
+            //        MessageBox.Show("a");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Lỗi đăng nhập");
+            //    }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Mật khẩu hoặc tài khoản không đúng");
+            //};
         }
 
         private void btn_ConnectLane_Click(object sender, RoutedEventArgs e)
         {
+            string severname = txt_StationName.Text.ToString();
+            string connString = "Data Source=" + txt_LaneName.Text.ToString()+ @"\sqlexpress" + ";Initial Catalog=" + txt_dbLaneName.Text.ToString() + ";User ID=" + txt_UserDbLane.Text.ToString() + ";password=" + pas_PasswordLane.Password + ";";
+            SqlConnection conn = new SqlConnection(connString);
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                    MessageBox.Show("Kết nối thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi đăng nhập");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Mật khẩu hoặc tài khoản không đúng");
+            };
         }
     }
 }
