@@ -48,7 +48,7 @@
                             <RadioButton HorizontalAlignment="Left" IsChecked="True" FontStyle="Normal" Height="23" VerticalAlignment="Center" Margin="15.2,9,0,9.6" Width="59" Grid.Row="0" Grid.Column="1">By day</RadioButton>
                             <Label Grid.Row="1" HorizontalAlignment="Left" Margin="0,9.4,0,0.4" Width="105" Grid.Column="1">Interval</Label>
                             <DatePicker HorizontalAlignment="Center" Width="107" Grid.Column="1" Margin="139.2,38,146.6,0" Grid.RowSpan="3" />
-                            <Button Content="Apply" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Width="100px" Margin="283.2,0,9.6,0.4"></Button>
+                            <Button x:Name="btn_Apply" Content="Apply" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Width="100px" Margin="283.2,0,9.6,0.4" Click="btn_Apply_Click"></Button>
                         </Grid>
                     </GroupBox>
                     <!--<Grid Grid.Column="1">
@@ -257,13 +257,13 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Button Background="AliceBlue" Grid.Column="3" Content="Add" Height="30" Width="120px" VerticalAlignment="Center" x:Name="btn_add" Click="btn_ConnectLane_Click" Grid.Row="1"/>
+                        <Button Background="AliceBlue" Grid.Column="3" Content="Add" Height="30" Width="120px" VerticalAlignment="Center" x:Name="btn_add" Click="btn_add_Click"     Grid.Row="1"/>
                         <Button Background="#FFF0D1B6" Grid.Column="4" Content="Update" Height="30" Width="120px" VerticalAlignment="Center" x:Name="btn_update" Click="btn_ConnectLane_Click" Grid.Row="1"/>
                         <Button Background="LightPink" Grid.Column="5" Content="Delete" Height="30" Width="120px" VerticalAlignment="Center" x:Name="btn_delete" Click="btn_ConnectLane_Click" Grid.Row="1"/>
-                        <Button x:Name="btn_connectLane" Grid.Column="2" Content="Check Connection" Height="30px" Width="100px" Click="btn_ConnectLane_Click" />
+                        <Button x:Name="btn_connectLane" Grid.Column="2" Content="Check Connection" Height="30px" Width="100px" Click="btn_ConnectLane_Click" Margin="16.4,11,16.4,0" VerticalAlignment="Top" />
                     </Grid>
                     <GroupBox Header="Thông tin trạng thái làn trạm" Grid.Row="4" Margin="0,0.8,-0.4,-0.2"  >
-                        <ListView SelectionMode="Single" Visibility="Visible">
+                        <ListView SelectionMode="Single" Visibility="Visible" ItemsSource="{Binding Lanelist}">
                             <ListView.Resources>
                                 <Style TargetType="ListViewItem">
                                     <Style.Triggers>
@@ -272,14 +272,14 @@
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
-                            </ListView.Resources>
+                            </ListView.Resources >
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Width="150px" Header="Tên làn/trạm" DisplayMemberBinding="{Binding name}"></GridViewColumn>
-                                    <GridViewColumn Width="150px"  Header="Mã làn/trạm" DisplayMemberBinding="{Binding IpAddress}"></GridViewColumn>
-                                    <GridViewColumn Width="150px" Header="Địa chỉ IP" DisplayMemberBinding="{Binding LanetoServerState}"></GridViewColumn>
-                                    <GridViewColumn Width="150px" Header="Thời gian online cuối" DisplayMemberBinding="{Binding SevertoLaneState}"></GridViewColumn>
-                                    <GridViewColumn Width="150px" Header="Trạng thái CSDL" DisplayMemberBinding="{Binding OnlineState}"></GridViewColumn>
+                                    <GridViewColumn Width="150px" Header="Tên làn/trạm" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                                    <GridViewColumn Width="150px"  Header="Mã làn/trạm" DisplayMemberBinding="{Binding LaneCode }"></GridViewColumn>
+                                    <GridViewColumn Width="150px" Header="Địa chỉ IP" DisplayMemberBinding="{Binding IpAddress}"></GridViewColumn>
+                                    <GridViewColumn Width="150px" Header="Thời gian online cuối" DisplayMemberBinding="{Binding LastTimeOnline}"></GridViewColumn>
+                                    <GridViewColumn Width="150px" Header="Trạng thái CSDL" DisplayMemberBinding="{Binding IsUsed}"></GridViewColumn>
                                     <!--<GridViewColumn Width="70px" Header="Action" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
